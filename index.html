@@ -54,29 +54,6 @@
             background-color: #ced6e0;
             color: #333;
             position: absolute;
-            
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-
-        }
-
-        .btn:hover {
-            transform: scale(1.1);
-        }
-
-        .love-message {
-            font-size: 1.8rem;
-            color: #ff4757;
-            line-height: 1.6;
-            padding: 20px;
-            display: none;
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
         }
     </style>
 </head>
@@ -90,38 +67,20 @@ transform: translate(-50%, -50%);
         </div>
     </div>
 
-    <div class="love-message" id="loveMessage">
-        I love you so much! ❤️<br>
-        Happy 1-Month Anniversary! 🎉<br>
-        You keep me happyy<br>
-        you keep my worldd soo much brighter<br>
-        I hope we stayyy togetherrr
-    </div>
-
     <script>
         const yesBtn = document.getElementById('yesBtn');
         const noBtn = document.getElementById('noBtn');
-        const quizContainer = document.getElementById('quiz-container');
-        const loveMessage = document.getElementById('loveMessage');
 
         yesBtn.addEventListener('click', () => {
-            quizContainer.style.display = 'none';
-            loveMessage.style.display = 'block';
+            window.open('https://billimamu9-cell.github.io/1-monthh-anniversaryyy-/', '_blank');
         });
 
         noBtn.addEventListener('mouseover', () => {
-            const containerRect = quizContainer.getBoundingClientRect();
-            const btnRect = noBtn.getBoundingClientRect();
-
-            const maxX = containerRect.width - btnRect.width;
-            const maxY = containerRect.height - btnRect.height;
-
-            const randomX = Math.random() * maxX;
-            const randomY = Math.random() * maxY;
-
-            noBtn.style.left = randomX + 'px';
-            noBtn.style.top = randomY + 'px';
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
         });
-</script>
+    </script>
 </body>
 </html>
