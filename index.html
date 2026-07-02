@@ -54,9 +54,6 @@
             background-color: #ced6e0;
             color: #333;
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
         }
 
         .btn:hover {
@@ -99,7 +96,7 @@
     <script>
         const yesBtn = document.getElementById('yesBtn');
         const noBtn = document.getElementById('noBtn');
-        const quizContainer = document.getElementById('quizContainer');
+        const quizContainer = document.getElementById('quiz-container');
         const loveMessage = document.getElementById('loveMessage');
 
         yesBtn.addEventListener('click', () => {
@@ -108,7 +105,7 @@
         });
 
         noBtn.addEventListener('mouseover', () => {
-            const containerRect = document.querySelector('.btn-container').getBoundingClientRect();
+            const containerRect = quizContainer.getBoundingClientRect();
             const btnRect = noBtn.getBoundingClientRect();
 
             const maxX = containerRect.width - btnRect.width;
@@ -120,6 +117,6 @@
             noBtn.style.left = randomX + 'px';
             noBtn.style.top = randomY + 'px';
         });
-    </script>
+</script>
 </body>
 </html>
