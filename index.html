@@ -27,12 +27,12 @@
 
         .btn-container {
             display: flex;
-            gap: 20px;
+            gap: 40px; /* दोनों बटन के बीच की दूरी */
             justify-content: center;
             align-items: center;
-            width: 100%;
-            height: 80px;
             position: relative;
+            width: 300px;
+            height: 100px;
         }
 
         .btn {
@@ -41,19 +41,20 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: transform 0.1s;
+            font-weight: bold;
         }
 
         .yes-btn {
             background-color: #ff4757;
             color: white;
-            z-index: 10;
         }
 
         .no-btn {
             background-color: #ced6e0;
             color: #333;
             position: absolute;
+            left: 170px; /* शुरुआती पोजीशन Yes के ठीक बगल में */
+            transition: all 0.1s ease;
         }
     </style>
 </head>
@@ -71,13 +72,18 @@
         const yesBtn = document.getElementById('yesBtn');
         const noBtn = document.getElementById('noBtn');
 
+        // Yes बटन दबाने पर नया पेज खुलेगा
         yesBtn.addEventListener('click', () => {
             window.open('https://billimamu9-cell.github.io/1-monthh-anniversaryyy-/', '_blank');
         });
 
+        // No बटन पर कर्सर जाते ही वह अपनी पोजीशन बदल लेगा (भागेगा)
         noBtn.addEventListener('mouseover', () => {
+            // बटन को स्क्रीन के अंदर ही रखने के लिए कैलकुलेशन
             const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
             const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            
+            noBtn.style.position = 'fixed'; // अब यह स्क्रीन पर कहीं भी जा सकता है
             noBtn.style.left = `${x}px`;
             noBtn.style.top = `${y}px`;
         });
